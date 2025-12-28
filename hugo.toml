@@ -42,6 +42,11 @@ theme = 'PaperMod'
 # 配置页面访问统计
 [params]
   enableAnalytics = true
-  analytics = "umami"
-  umamiScriptUrl = "https://umami.example.com/script.js"
-  umamiWebsiteId = "your-website-id"
+  [params.analytics]
+    # Google Analytics配置
+    [params.analytics.google]
+      SiteVerificationTag = ""
+    # Umami Analytics配置
+    [params.analytics.umami]
+      scriptUrl = "https://umami.example.com/script.js"
+      websiteId = "your-website-id"
