@@ -106,21 +106,11 @@
             </li>
             {{- end }}
             
-            <!-- 添加Tags下拉菜单 -->
-            <li class="menu-item-has-children">
+            <!-- 添加Tags链接 -->
+            <li>
                 <a href="{{ "tags/" | absLangURL }}" title="Tags">
                     <span>Tags</span>
                 </a>
-                <ul class="sub-menu">
-                    {{- $tags := site.Taxonomies.tags.Alphabetical }}
-                    {{- range $tags }}
-                    <li>
-                        <a href="{{ .Page.Permalink }}" title="{{ .Page.Title }}">
-                            {{ .Page.Title }} <sup>{{ .Count }}</sup>
-                        </a>
-                    </li>
-                    {{- end }}
-                </ul>
             </li>
         </ul>
     </nav>
