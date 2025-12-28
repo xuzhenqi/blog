@@ -1,9 +1,11 @@
-/* 下拉菜单样式 */
-.menu-item-has-children {
+/* 下拉菜单样式 - 适配PaperMod主题 */
+
+/* 确保父菜单项是相对定位 */
+#menu > li {
     position: relative;
-    display: inline-block;
 }
 
+/* 隐藏子菜单 */
 .sub-menu {
     display: none;
     position: absolute;
@@ -15,37 +17,48 @@
     min-width: 180px;
     z-index: 1000;
     margin: 0;
-    padding: 10px 0;
+    padding: 8px 0;
     list-style: none;
     border: 1px solid #e5e7eb;
+    white-space: normal;
+    overflow: hidden;
 }
 
-.menu-item-has-children:hover .sub-menu {
+/* 悬停显示子菜单 */
+#menu > li:hover > .sub-menu {
     display: block;
 }
 
+/* 子菜单项样式 */
 .sub-menu li {
     display: block;
     margin: 0;
     padding: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
+/* 子菜单链接样式 */
 .sub-menu li a {
     display: block;
     padding: 8px 20px;
     color: #374151;
     text-decoration: none;
     transition: all 0.2s ease;
-    font-size: 0.95em;
+    font-size: 14px;
     white-space: nowrap;
     font-weight: 400;
+    line-height: normal;
+    margin: 0 !important;
 }
 
+/* 子菜单链接悬停效果 */
 .sub-menu li a:hover {
     background-color: #f3f4f6;
     color: #111827;
 }
 
+/* 子菜单文章数量样式 */
 .sub-menu li sup {
     font-size: 0.7em;
     opacity: 0.7;
@@ -54,49 +67,50 @@
 }
 
 /* 深色模式适配 */
-@media (prefers-color-scheme: dark) {
-    .sub-menu {
-        background-color: #1f2937;
-        border: 1px solid #374151;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    }
-    
-    .sub-menu li a {
-        color: #e5e7eb;
-    }
-    
-    .sub-menu li a:hover {
-        background-color: #374151;
-        color: #ffffff;
-    }
-    
-    .sub-menu li sup {
-        color: #9ca3af;
-    }
+[data-theme="dark"] .sub-menu {
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* 响应式设计 */
+[data-theme="dark"] .sub-menu li a {
+    color: #e5e7eb;
+}
+
+[data-theme="dark"] .sub-menu li a:hover {
+    background-color: #374151;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .sub-menu li sup {
+    color: #9ca3af;
+}
+
+/* 确保父菜单样式不受影响 */
+.menu-item-has-children {
+    display: flex;
+    align-items: center;
+}
+
+/* 响应式设计 - 适配移动端 */
 @media (max-width: 768px) {
-    .menu-item-has-children {
-        display: block;
-    }
-    
+    /* 在移动端，子菜单作为普通列表项显示 */
     .sub-menu {
         position: relative;
+        display: block;
         box-shadow: none;
         border: none;
         padding: 0 0 0 20px;
+        background-color: transparent;
+        min-width: auto;
+    }
+    
+    [data-theme="dark"] .sub-menu {
         background-color: transparent;
     }
     
     .sub-menu li a {
         padding: 6px 0;
-    }
-    
-    /* 深色模式响应式 */
-    @media (prefers-color-scheme: dark) {
-        .sub-menu {
-            background-color: transparent;
-        }
+        font-size: 13px;
     }
 }
