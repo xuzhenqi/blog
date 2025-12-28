@@ -9,15 +9,15 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: var(--card-bg-color);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    min-width: 150px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    min-width: 180px;
     z-index: 1000;
     margin: 0;
-    padding: 8px 0;
+    padding: 10px 0;
     list-style: none;
-    border: 1px solid var(--border-color);
+    border: 1px solid #e5e7eb;
 }
 
 .menu-item-has-children:hover .sub-menu {
@@ -32,22 +32,47 @@
 
 .sub-menu li a {
     display: block;
-    padding: 8px 16px;
-    color: var(--text-color);
+    padding: 8px 20px;
+    color: #374151;
     text-decoration: none;
-    transition: background-color 0.2s;
-    font-size: 0.9em;
+    transition: all 0.2s ease;
+    font-size: 0.95em;
     white-space: nowrap;
+    font-weight: 400;
 }
 
 .sub-menu li a:hover {
-    background-color: var(--hover-bg-color);
+    background-color: #f3f4f6;
+    color: #111827;
 }
 
 .sub-menu li sup {
     font-size: 0.7em;
     opacity: 0.7;
-    margin-left: 4px;
+    margin-left: 6px;
+    color: #6b7280;
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+    .sub-menu {
+        background-color: #1f2937;
+        border: 1px solid #374151;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+    
+    .sub-menu li a {
+        color: #e5e7eb;
+    }
+    
+    .sub-menu li a:hover {
+        background-color: #374151;
+        color: #ffffff;
+    }
+    
+    .sub-menu li sup {
+        color: #9ca3af;
+    }
 }
 
 /* 响应式设计 */
@@ -61,9 +86,17 @@
         box-shadow: none;
         border: none;
         padding: 0 0 0 20px;
+        background-color: transparent;
     }
     
     .sub-menu li a {
-        padding: 4px 0;
+        padding: 6px 0;
+    }
+    
+    /* 深色模式响应式 */
+    @media (prefers-color-scheme: dark) {
+        .sub-menu {
+            background-color: transparent;
+        }
     }
 }
