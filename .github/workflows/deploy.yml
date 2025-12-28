@@ -40,7 +40,7 @@ jobs:
       # 安装依赖（如果有）
       - name: Install dependencies
         run: npm ci
-        if: exists('package.json')
+        if: hashFiles('package.json') != ''
       
       # 构建网站
       - name: Build with Hugo
