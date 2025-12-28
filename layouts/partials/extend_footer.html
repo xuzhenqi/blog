@@ -1,0 +1,6 @@
+{{ if .Site.Params.enableAnalytics }}
+    {{ if eq .Site.Params.analytics "umami" }}
+        <!-- Umami Analytics -->
+        <script async defer data-website-id="{{ .Site.Params.umamiWebsiteId }}" src="{{ .Site.Params.umamiScriptUrl }}"></script>
+    {{ end }}
+{{ end }}

@@ -1,0 +1,47 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme = 'PaperMod'
+
+# 配置Markdown渲染器
+[markup]
+  [markup.goldmark]
+    # 启用Goldmark扩展
+    [markup.goldmark.extensions]
+      definitionList = true  # 启用定义列表
+      footnote = true        # 启用脚注
+      linkify = true         # 自动链接URL
+      strikethrough = true   # 启用删除线
+      table = true           # 启用表格
+      taskList = true        # 启用任务列表
+      typographer = true     # 启用排版优化
+    # 配置渲染选项
+    [markup.goldmark.renderer]
+      unsafe = true          # 允许HTML标签
+      hardWraps = false      # 不自动换行
+      xHTML = false          # 不使用XHTML
+  
+  # 配置代码高亮
+  [markup.highlight]
+    codeFences = true       # 启用代码围栏
+    guessSyntax = true      # 自动猜测语法
+    hl_Lines = ''           # 高亮特定行
+    lineNoStart = 1         # 行号起始值
+    lineNos = false         # 不显示行号
+    lineNumbersInTable = true # 在表格中显示行号
+    noClasses = false       # 不使用内联样式，使用CSS类
+    style = 'dracula'       # 代码高亮主题
+    tabWidth = 4            # 制表符宽度
+  
+  # 配置目录生成
+  [markup.tableOfContents]
+    endLevel = 3            # 目录最大级别
+    ordered = false         # 无序目录
+    startLevel = 2          # 目录起始级别
+
+# 配置页面访问统计
+[params]
+  enableAnalytics = true
+  analytics = "umami"
+  umamiScriptUrl = "https://umami.example.com/script.js"
+  umamiWebsiteId = "your-website-id"
