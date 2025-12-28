@@ -1,4 +1,10 @@
 {{ if .Site.Params.enableAnalytics }}
-    <!-- Umami Analytics -->
-    <script async defer data-website-id="{{ .Site.Params.analytics.umami.websiteId }}" src="{{ .Site.Params.analytics.umami.scriptUrl }}"></script>
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.analytics.google.TrackingID }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ .Site.Params.analytics.google.TrackingID }}');
+    </script>
 {{ end }}

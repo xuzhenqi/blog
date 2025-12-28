@@ -46,7 +46,4 @@ theme = 'PaperMod'
     # Google Analytics配置
     [params.analytics.google]
       SiteVerificationTag = ""
-    # Umami Analytics配置
-    [params.analytics.umami]
-      scriptUrl = "https://umami.example.com/script.js"
-      websiteId = "your-website-id"
+      TrackingID = "G-GYCN86Y3Y5"  # Google Analytics Measurement ID
