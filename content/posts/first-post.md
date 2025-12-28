@@ -2,6 +2,7 @@
 date = '2025-12-28T18:10:05+08:00'
 draft = false
 title = 'First Post'
+tags = ['Hugo', '博客', '教程']
 +++
 
 # 欢迎来到我的博客
